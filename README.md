@@ -4,4 +4,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## About
 
-Test app for learning React concepts
+Test app for learning React concepts. 
+Branches are organized mostly by date of lecture with commits as example(s) progressed throughout the leacture (mostly).
