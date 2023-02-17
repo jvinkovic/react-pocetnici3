@@ -1,5 +1,6 @@
 import ShowText from "./Components/ShowText";
 import ShowClassText from "./Components/ShowClassText";
+import ArrowFunc from './Components/ArrowFunc';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <p>
         <ShowText />
         <ShowClassText />
+        <ArrowFunc />
       </p>
     </div>
   );

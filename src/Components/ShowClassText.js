@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class ShowClassText extends React.Component {
 
@@ -10,3 +10,4 @@ class ShowClassText extends React.Component {
 }
 
 export default ShowClassText;
+
