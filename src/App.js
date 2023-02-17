@@ -1,15 +1,16 @@
 import ShowText from "./Components/ShowText";
-import ShowClassText from "./Components/ShowClassText";
+import ShowMeTheMoney from "./Components/ShowMeTheMoney";
 import ArrowFunc from './Components/ArrowFunc';
 
 function App() {
   return (
     <div>
-      <p>
-        <ShowText />
-        <ShowClassText />
+      <div>
+        <ShowText ime='Pero' pozdrav='Dobro jutro' />
+        <ShowMeTheMoney money={67} />
         <ArrowFunc />
-      </p>
+      </div>
+        <ShowMeTheMoney money={104} />
     </div>
   );
 }
