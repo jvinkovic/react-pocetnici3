@@ -5,7 +5,7 @@ import Osoba from './Osoba';
 import Osoba2 from './Osoba2';
 
 export default class PopisOsoba extends React.Component {
-
+    
     render() {
         const { popis } = this.props;
 

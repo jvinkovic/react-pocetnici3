@@ -5,6 +5,9 @@ import ShowText from "./Components/ShowText";
 import ShowMeTheMoney from "./Components/ShowMeTheMoney";
 import ArrowFunc from './Components/ArrowFunc';
 import PopisOsoba from './Z1/PopisOsoba';
+import MyComponent from './State/MyComponent';
+import ChildrenKomponent from './Components/ChildrenKomponent';
+import FuncComponent from './State/FuncComponent';
 
 const osobe = [
   {ime: 'Pero', prezime: 'Perić', godine: 45},
@@ -30,6 +33,14 @@ function App() {
         <AlphaPicker />
         <hr/>
         {rand}
+        <hr/>
+        <MyComponent />
+        <hr/>
+        <ChildrenKomponent ime={'Jasna'}>
+          pozdrav iz children prop
+        </ChildrenKomponent>
+        <hr/>
+        <FuncComponent />
     </div>
   );
 }
