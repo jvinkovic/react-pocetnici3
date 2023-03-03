@@ -1,14 +1,51 @@
 import React from 'react';
 
 class MyComponent extends React.Component {
-    state = {
-        city: "Zagreb",
-        country: "Hrvatska",
-        obj: {
-            min: 22,
-            max: 33
+    constructor(props) {
+        super(props);
+
+        console.log("constructor");
+
+        this.state = {
+            city: "Zagreb",
+            country: "Hrvatska",
+            obj: {
+                min: 22,
+                max: 33
+            }
+        };
+    }
+
+    componentDidMount(){
+        console.log("componentDidMount");
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("componentDidUpdate");
+
+        console.log("props");
+        console.log(this.props);
+
+        console.log("prevProps");
+        console.log(prevProps);
+
+        console.log("state");
+        console.log(this.state);
+
+        console.log("prevState");
+        console.log(prevState);
+
+        console.log("snapshot");
+        console.log(snapshot);
+
+        if(prevState.city !== this.state.city) {
+            console.log("grad se promijenio");
         }
-    };
+    }
+
+    componentWillUnmount() {
+        console.log("componentWillUnmount");
+    }
 
     changeState = () => {
         const newCity = this.state.city === "Zagreb" ? "Osijek" : "Zagreb";

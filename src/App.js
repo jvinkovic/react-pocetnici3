@@ -8,6 +8,8 @@ import PopisOsoba from './Z1/PopisOsoba';
 import MyComponent from './State/MyComponent';
 import ChildrenKomponent from './Components/ChildrenKomponent';
 import FuncComponent from './State/FuncComponent';
+import CountRootComponent from './Event/CountRootComponent';
+import MyList from './List/MyList';
 
 const osobe = [
   {ime: 'Pero', prezime: 'Perić', godine: 45},
@@ -20,6 +22,15 @@ function App() {
 
   return (
     <div>
+      <div>
+        <MyList />
+      </div>
+
+      {/* <p>
+        <CountRootComponent />
+      </p>
+      <hr/>
+      <hr/>
       <div>
         <ShowText ime='Pero' pozdrav='Dobro jutro' />
         <ShowMeTheMoney money={67} />
@@ -40,7 +51,7 @@ function App() {
           pozdrav iz children prop
         </ChildrenKomponent>
         <hr/>
-        <FuncComponent />
+        <FuncComponent /> */}
     </div>
   );
 }
