@@ -1,19 +1,48 @@
 import { useState } from 'react';
 import Osoba from './Osoba';
 
+let currentId = 4;
+
 export default function OsobeList(){
     const [korisnici, setKorisnici] = useState([
-                                        { ime: 'Pero', prezime: 'Perić', godine: 33},
-                                        { ime: 'Vitomir', prezime: 'Ogonol', godine: 56},
-                                        { ime: 'Karolina', prezime: 'Baluk', godine: 11},
-                                        { ime: 'Tomislava', prezime: 'Org', godine: 26}
+                                        { id: 1, ime: 'Pero', prezime: 'Perić', godine: 33},
+                                        { id: 2, ime: 'Vitomir', prezime: 'Ogonol', godine: 56},
+                                        { id: 3, ime: 'Karolina', prezime: 'Baluk', godine: 11},
+                                        { id: 4, ime: 'Tomislava', prezime: 'Org', godine: 26}
                                     ]);
+
+    const handleChangeIme = (tekst, index) => {
+        const noviKorisnici = [...korisnici];
+        noviKorisnici[index].ime = tekst;        
+        setKorisnici(noviKorisnici);
+    }
+
+    const handleChangePrezime = (tekst, index) => {
+        const noviKorisnici = [...korisnici];
+        noviKorisnici[index].prezime = tekst;
+        setKorisnici(noviKorisnici);
+    }
+
+    const handleChangeGodine = (tekst, index) => {
+        const noviKorisnici = [...korisnici];
+        noviKorisnici[index].godine = tekst;
+        setKorisnici(noviKorisnici);
+    }
 
     return (
         <div>
             {korisnici.map((korisnik, index) => {
                 return (
-                    <Osoba key={index} osoba={korisnik} />
+                    <Osoba key={korisnik.id} osoba={korisnik}
+                                        onChangeIme={(tekst) => handleChangeIme(tekst, index)}
+                                        onChangePrezime={(tekst) => handleChangePrezime(tekst, index)} 
+                                        onChangeGodine={(tekst) => handleChangeGodine(tekst, index)} />
+                )
+            })}
+
+            {korisnici.map((korisnik) => {
+                return (
+                    <p key={korisnik.id}>{korisnik.ime} {korisnik.prezime} {korisnik.godine}</p>
                 )
             })}
         </div>
