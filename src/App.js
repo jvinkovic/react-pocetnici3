@@ -1,7 +1,6 @@
-
-
 import CountRootComponent from './Event/CountRootComponent';
 import MyList from './List/MyList';
+import OsobeList from './List/OsobeList';
 
 function App() {
   return (
@@ -11,11 +10,11 @@ function App() {
       </div>
       <hr/>
       <h3>Osobe</h3>
-
+      <OsobeList />
       <hr/>
-      <p>
+      <div>
         <CountRootComponent />
-      </p>   
+      </div>   
     </div>
   );
 }
