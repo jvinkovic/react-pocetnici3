@@ -1,57 +1,21 @@
-import { SketchPicker, AlphaPicker } from 'react-color'
-import random from 'random'
 
-import ShowText from "./Components/ShowText";
-import ShowMeTheMoney from "./Components/ShowMeTheMoney";
-import ArrowFunc from './Components/ArrowFunc';
-import PopisOsoba from './Z1/PopisOsoba';
-import MyComponent from './State/MyComponent';
-import ChildrenKomponent from './Components/ChildrenKomponent';
-import FuncComponent from './State/FuncComponent';
+
 import CountRootComponent from './Event/CountRootComponent';
 import MyList from './List/MyList';
 
-const osobe = [
-  {ime: 'Pero', prezime: 'Perić', godine: 45},
-  {ime: 'Maja', prezime: 'Majić', godine: 21},
-];
-
 function App() {
-
-  var rand = random.int(45, 888);
-
   return (
     <div>
       <div>
         <MyList />
       </div>
+      <hr/>
+      <h3>Osobe</h3>
 
-      {/* <p>
+      <hr/>
+      <p>
         <CountRootComponent />
-      </p>
-      <hr/>
-      <hr/>
-      <div>
-        <ShowText ime='Pero' pozdrav='Dobro jutro' />
-        <ShowMeTheMoney money={67} />
-        <ArrowFunc />
-      </div>
-        <ShowMeTheMoney money={104} />
-        <hr/>
-        <PopisOsoba popis={osobe} />
-        <hr/>
-        <SketchPicker />
-        <AlphaPicker />
-        <hr/>
-        {rand}
-        <hr/>
-        <MyComponent />
-        <hr/>
-        <ChildrenKomponent ime={'Jasna'}>
-          pozdrav iz children prop
-        </ChildrenKomponent>
-        <hr/>
-        <FuncComponent /> */}
+      </p>   
     </div>
   );
 }
