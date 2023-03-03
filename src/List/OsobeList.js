@@ -1,18 +1,19 @@
+import { useState } from 'react';
+import Osoba from './Osoba';
+
 export default function OsobeList(){
-    const korisnici = [
-        { ime: 'Pero', prezime: 'Perić', godine: 33},
-        { ime: 'Vitomir', prezime: 'Ogonol', godine: 56},
-        { ime: 'Karolina', prezime: 'Baluk', godine: 11},
-        { ime: 'Tomislava', prezime: 'Org', godine: 26}
-    ];
+    const [korisnici, setKorisnici] = useState([
+                                        { ime: 'Pero', prezime: 'Perić', godine: 33},
+                                        { ime: 'Vitomir', prezime: 'Ogonol', godine: 56},
+                                        { ime: 'Karolina', prezime: 'Baluk', godine: 11},
+                                        { ime: 'Tomislava', prezime: 'Org', godine: 26}
+                                    ]);
 
     return (
         <div>
-            {korisnici.map((k, i) => {
+            {korisnici.map((korisnik, index) => {
                 return (
-                    <p key={i}>
-                        {k.ime} {k.prezime} : {k.godine}
-                    </p>
+                    <Osoba key={index} osoba={korisnik} />
                 )
             })}
         </div>
