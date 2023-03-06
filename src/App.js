@@ -24,7 +24,10 @@ function App() {
         <CountRootComponent />
       </div>
       <hr/>
+      <button onClick={() => setName('Button kliknut')}>Klik</button>
       <input value={name} onChange={handleChange} />
+      {/* doljnji input funkcionira isto kao i gornji */}
+      <input value={name} onChange={(e) => setName(e.target.value)} />
     </div>
   );
 }

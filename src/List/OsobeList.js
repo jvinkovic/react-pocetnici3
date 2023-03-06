@@ -29,6 +29,18 @@ export default function OsobeList(){
         setKorisnici(noviKorisnici);
     }
 
+    const handleDeleteOsoba = (index) => {
+        const newKorisnici = [];
+        
+        for(let i = 0; i < korisnici.length; i++){
+            if(i !== index) {
+                newKorisnici.push({...korisnici[i]});
+            }
+        }
+
+        setKorisnici(newKorisnici);
+    }
+
     return (
         <div>
             {korisnici.map((korisnik, index) => {
@@ -36,7 +48,8 @@ export default function OsobeList(){
                     <Osoba key={korisnik.id} osoba={korisnik}
                                         onChangeIme={(tekst) => handleChangeIme(tekst, index)}
                                         onChangePrezime={(tekst) => handleChangePrezime(tekst, index)} 
-                                        onChangeGodine={(tekst) => handleChangeGodine(tekst, index)} />
+                                        onChangeGodine={(tekst) => handleChangeGodine(tekst, index)}
+                                        onDelete={() => handleDeleteOsoba(index)} />
                 )
             })}
 
