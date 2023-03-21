@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -6,40 +7,52 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const AddTask = ({ onAdd }) => {
-    const [taskText, setTaskText] = useState('');
+class AddTask extends React.Component {
+    constructor(props) {
+        super(props);
 
-    const handleInputChange = (e) => {
-        const textValue = e.target.value;
-        setTaskText(textValue);
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const newTaskText = taskText.trim();
-        if(newTaskText.length > 0) {
-            onAdd(newTaskText);
-            setTaskText('');
+        this.state = {
+            taskText: ''
         }
     }
 
-    return (
-        <div>
-            {/* <form onSubmit={handleSubmit}>
-                <input type='text' value={taskText} placeholder='Unesi novi zadatak' onChange={handleInputChange} />
-                <input type='submit' value='Dodaj' />
-            </form> */}
-            <Row>
-                <Col>
-                    <InputGroup className="mt-3 mb-3 m-auto">
-                        <Form.Control placeholder="Unesi novi zadatak" value={taskText} onChange={handleInputChange} />
-                        <Button onClick={handleSubmit} variant="outline-secondary">Dodaj</Button>
-                    </InputGroup>
-                </Col>
-            </Row>
-        </div>
-    );
+    handleInputChange = (e) => {
+        const textValue = e.target.value;
+        this.setState({taskText: textValue});
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        const newTaskText = this.state.taskText.trim();
+        if(newTaskText.length > 0) {
+            this.props.onAdd(newTaskText);
+            this.setState({taskText: ''});
+        }
+    }
+
+    render(){
+        return (
+            <div>
+                {/* <form onSubmit={handleSubmit}>
+                    <input type='text' value={taskText} placeholder='Unesi novi zadatak' onChange={handleInputChange} />
+                    <input type='submit' value='Dodaj' />
+                </form> */}
+                <Row>
+                    <Col className='m-auto' sm={6}>
+                        <InputGroup className="mt-3 mb-3">
+                            <Form.Control placeholder="Unesi novi zadatak" value={this.state.taskText} onChange={this.handleInputChange} />
+                            <Button onClick={this.handleSubmit} variant="outline-secondary">Dodaj</Button>
+                        </InputGroup>
+                    </Col>
+                </Row>
+            </div>
+        );
+    }
+}
+
+AddTask.propTypes = {
+    onAdd: PropTypes.func
 }
 
 export default AddTask;

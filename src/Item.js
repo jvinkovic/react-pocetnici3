@@ -20,16 +20,17 @@ function Item({ task, onStatusChange, onDelete }) {
                     checked={task.isDone} 
                     onChange={handleTaskStatusChange} /> {task.name} <button onClick={handleDelete}>X</button> */}
             <Row>
-                <Col>
+                <Col sm={11}>
                     <Form.Check 
                         type="switch"                
                         label={task.name}
                         checked={task.isDone} 
                         onChange={handleTaskStatusChange}
+                        className='me-auto'
                     />
                 </Col>
-                <Col>
-                    <Button onClick={handleDelete} variant='outline-danger'>X</Button>
+                <Col sm={1}>
+                    <Button onClick={handleDelete} className='float-end' variant='outline-danger'>X</Button>
                 </Col>
             </Row>
         </div>
